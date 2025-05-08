@@ -9,15 +9,15 @@ echo "Getting details of the current subscription..."
 SUBSCRIPTION_ID=$(  az account show --query id        -o tsv)
 SUBSCRIPTION_NAME=$(az account show --query name      -o tsv)
 USERNAME=$(         az account show --query user.name -o tsv)
-echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 echo "Azure Environment Details"
-echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 dos2unix get_info.sh
 
 echo "Subscription ID   : $SUBSCRIPTION_ID"
 echo "Subscription Name : $SUBSCRIPTION_NAME"
 echo "Username          : $USERNAME"
-echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 echo
 
 echo "Getting Resource Groups..."
@@ -26,8 +26,7 @@ if [ -z "$RESOURCE_GROUPS" ]; then
   echo "No Resource Groups found in this subscription"
   break
 fi
-echo "Resource Groups: $RESOURCE_GROUPS"
-echo
+echo $RESOURCE_GROUPS
 
 for RG in $RESOURCE_GROUPS; do
   echo "------------------------------"
