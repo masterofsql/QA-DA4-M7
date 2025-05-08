@@ -18,6 +18,7 @@ echo "Subscription ID   : $SUBSCRIPTION_ID"
 echo "Subscription Name : $SUBSCRIPTION_NAME"
 echo "Username          : $USERNAME"
 echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+echo
 
 echo "Getting Resource Groups..."
 RESOURCE_GROUPS=$(az group list --query "[].name" -o tsv)
@@ -25,7 +26,8 @@ if [ -z "$RESOURCE_GROUPS" ]; then
   echo "No Resource Groups found in this subscription"
   break
 fi
-echo "Resource Groups:"
+echo "Resource Groups: $RESOURCE_GROUPS"
+echo
 
 for RG in $RESOURCE_GROUPS; do
   echo "------------------------------"
