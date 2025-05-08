@@ -49,7 +49,7 @@ for RG in $RESOURCE_GROUPS; do
           echo "                           - $COMP"
         done
       fi
+    done
   fi
-  done
   echo "------------------------------"
 done
