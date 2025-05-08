@@ -12,7 +12,6 @@ USERNAME=$(         az account show --query user.name -o tsv)
 echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 echo "Azure Environment Details"
 echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-dos2unix get_info.sh
 
 echo "Subscription ID   : $SUBSCRIPTION_ID"
 echo "Subscription Name : $SUBSCRIPTION_NAME"
