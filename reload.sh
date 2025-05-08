@@ -15,3 +15,4 @@ cp qa-labs/DEMO5/get_info.sh .
 dos2unix get_info.sh
 chmod +x get_info.sh
 ./get_info.sh
+
