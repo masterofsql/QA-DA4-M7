@@ -25,8 +25,8 @@ if [ -z "$RESOURCE_GROUPS" ]; then
 fi
 echo "Resource Groups:"
 #
-for RG in "$RESOURCE_GROUPS"; do
-  echo "------------------------------"
-  echo "Resource Group: $RG"
+for RG in $RESOURCE_GROUPS; do
+echo "------------------------------"
+echo "Resource Group: $RG"
 done
 #
