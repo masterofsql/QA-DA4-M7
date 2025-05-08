@@ -27,12 +27,14 @@ if [ -z "$RESOURCE_GROUPS" ]; then
   break
 fi
 echo $RESOURCE_GROUPS
-echo
+echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 
 for RG in $RESOURCE_GROUPS; do
+  echo
   echo "------------------------------"
   echo "RESOURCE GROUP: $RG"
-  # Get all the workspaces
+
+  # List workspaces in the resource group
   WORKSPACES=$(az ml workspace list --resource-group "$RG" --query "[].name" -o tsv 2>/dev/null)
 
   if [ -z "$WORKSPACES" ]; then
@@ -41,7 +43,13 @@ for RG in $RESOURCE_GROUPS; do
   fi
 
   for WS in $WORKSPACES; do
-    echo "    Workspace: $WS"
+    echo "    WORKSPACE: $WS"
+
+    # List computes in the workspace
+    COMPUTES=$(az ml compute list --workspace-name "$WS" --resource-group "$RG" --query "[].name" -o tsv 2>/dev/null)
+    echo $COMPUTES
+
+
   done
 
 done
