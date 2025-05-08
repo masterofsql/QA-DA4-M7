@@ -1,5 +1,6 @@
 #
 # Commands to run to get this file:
+# rm -rf qa-labs
 # git clone https://github.com/masterofsql/QA-DA4-M7.git qa-labs
 # cp qa-labs/reload.sh .
 # dos2unix reload.sh
