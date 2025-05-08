@@ -1,10 +1,10 @@
-#! /usr/bin/sh
-#
+#!/usr/bin/sh
+
 #
 # This script assumes we are already signed into Azure,
 # so we don't check for this
 #
-#
+
 echo "Getting details of the current subscription..."
 SUBSCRIPTION_ID=$(  az account show --query id        -o tsv)
 SUBSCRIPTION_NAME=$(az account show --query name      -o tsv)
@@ -16,7 +16,7 @@ echo "Subscription ID   : $SUBSCRIPTION_ID"
 echo "Subscription Name : $SUBSCRIPTION_NAME"
 echo "Username          : $USERNAME"
 echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-#
+
 echo "Getting Resource Groups..."
 RESOURCE_GROUPS=$(az group list --query "[].name" -o tsv)
 if [ -z "$RESOURCE_GROUPS" ]; then
@@ -24,10 +24,8 @@ if [ -z "$RESOURCE_GROUPS" ]; then
   break
 fi
 echo "Resource Groups:"
-#
-#for RG in $RESOURCE_GROUPS; do echo "Resource Group: $RG"; done
-#
-for i in 1 2 3 4 5
-do
-   echo "Welcome $i times"
+
+for RG in $RESOURCE_GROUPS; do
+  echo "------------------------------"
+  echo "Resource Group: $RG"
 done
