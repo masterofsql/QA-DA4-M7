@@ -1,9 +1,9 @@
 #! /usr/bin/sh
 #
-#
+
 # This script assumes we are already signed into Azure,
 # so we don't check for this
-#
+
 #
 echo "Getting details of the current subscription..."
 SUBSCRIPTION_ID=$(  az account show --query id        -o tsv)
