@@ -27,8 +27,21 @@ if [ -z "$RESOURCE_GROUPS" ]; then
   break
 fi
 echo $RESOURCE_GROUPS
+echo
 
 for RG in $RESOURCE_GROUPS; do
   echo "------------------------------"
-  echo "Resource Group: $RG"
+  echo "RESOURCE GROUP: $RG"
+  # Get all the workspaces
+  WORKSPACES=$(az ml workspace list --resource-group "$RG" --query "[].name" -o tsv 2>/dev/null)
+
+  if [ -z "$WORKSPACES" ]; then
+    echo "No ML workspaces found in this resource group"
+    continue
+  fi
+
+  for WS in $WORKSPACES; do
+    echo "    Workspace: $WS"
+  done
+
 done
