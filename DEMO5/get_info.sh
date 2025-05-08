@@ -1,4 +1,4 @@
-#!/usr/bin/sh
+#! /usr/bin/sh
 
 #
 # This script assumes we are already signed into Azure,
