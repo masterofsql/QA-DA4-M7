@@ -36,21 +36,20 @@ for RG in $RESOURCE_GROUPS; do
 
   if [ -z "$WORKSPACES" ]; then
     echo "     -- No ML workspaces found in this resource group"
-    continue
+  else
+    for WS in $WORKSPACES; do
+      echo "     WORKSPACE : $WS"
+      # List computes in the workspace
+      COMPUTES=$(az ml compute list --workspace-name "$WS" --resource-group "$RG" --query "[].name" -o tsv 2>/dev/null)
+      if [ -z "$COMPUTES" ]; then
+        echo "                 -- No compute targets found in this workspace"
+      else
+        echo "                 COMPUTES:"
+        for COMP in $COMPUTES; do
+          echo "                           - $COMP"
+        done
+      fi
   fi
-  for WS in $WORKSPACES; do
-    echo "     WORKSPACE : $WS"
-
-    # List computes in the workspace
-    COMPUTES=$(az ml compute list --workspace-name "$WS" --resource-group "$RG" --query "[].name" -o tsv 2>/dev/null)
-    if [ -z "$COMPUTES" ]; then
-      echo "                 -- No compute targets found in this workspace"
-    else
-      echo "                 COMPUTES:"
-      for COMP in $COMPUTES; do
-        echo "                           - $COMP"
-      done
-    fi
   done
   echo "------------------------------"
 done
