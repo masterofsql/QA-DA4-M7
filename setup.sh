@@ -21,7 +21,8 @@ echo "Resource Group    : ${RESOURCE_GROUP}"
 echo "AzureML Workspace : ${WORKSPACE_NAME}"
 
 echo "Creating compute instance..."
-COMPUTE_INSTANCE_NAME="qa-ci-${RESOURCE_GROUP}"
+#COMPUTE_INSTANCE_NAME="qa-ci-${RESOURCE_GROUP}"
+COMPUTE_INSTANCE_NAME="qa-lab-ci"
 az ml compute create \
    --name ${COMPUTE_INSTANCE_NAME} \
    --type ComputeInstance \
